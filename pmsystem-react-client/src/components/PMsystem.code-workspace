@@ -6,5 +6,8 @@
 		{
 			"path": "../../../../../Downloads/PPMToolDesign"
 		}
-	]
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "PPMToolDesign"
+	}
 }
