@@ -2,9 +2,11 @@ package com.xx.pmsystem.services;
 
 import com.xx.pmsystem.domain.Backlog;
 import com.xx.pmsystem.domain.Project;
+import com.xx.pmsystem.domain.User;
 import com.xx.pmsystem.exceptions.ProjectIdException;
 import com.xx.pmsystem.repositories.BacklogRepository;
 import com.xx.pmsystem.repositories.ProjectRepository;
+import com.xx.pmsystem.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +18,14 @@ public class ProjectService {
     @Autowired
     private BacklogRepository backlogRepository;
 
-    public Project saveOrUpdateProject(Project project){
+    @Autowired
+    private UserRepository userRepository;
+
+    public Project saveOrUpdateProject(Project project, String username){
         try{
+            User user = userRepository.findByUsername(username);
+            project.setUser(user);
+            project.setProjectLeader(user.getUsername());
             project.setProjectIdentifier(project.getProjectIdentifier().toUpperCase());
 
             if(project.getId() == null){

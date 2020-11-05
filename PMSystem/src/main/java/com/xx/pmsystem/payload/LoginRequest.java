@@ -8,7 +8,7 @@ public class LoginRequest {
     private String username;
     @NotBlank(message = "password can't be blank")
     private String password;
-    
+
 
     public String getUsername() {
         return username;
