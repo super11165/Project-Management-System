@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 class ProjectTask extends Component {
   onDeleteClick(backlog_id, pt_id) {
     this.props.deleteProjectTask(backlog_id, pt_id);
+    
   }
   render() {
     const { project_task } = this.props;
