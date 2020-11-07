@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logout } from "../../actions/securityActions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserAlt } from "@fortawesome/free-solid-svg-icons";
 
 class Header extends Component {
   logout() {
@@ -25,7 +27,8 @@ class Header extends Component {
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
             <Link className="nav-link" to="/dashboard">
-              <div>{user.fullname}</div>
+              <FontAwesomeIcon icon={faUserAlt} />
+              {" " + user.fullname}
             </Link>
           </li>
           <li className="nav-item">
